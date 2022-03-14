@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+    
+    alert(`Selamat datang di game tebak angka \nkamu diminta untuk menebak angka 1-3 \ndan kamu akan bermain dalam 5 ronde \nplayer yang berhasil mengumpulkan tebakan terbanyak akan menang. \nSELAMAT BERMAIN!!!`)
+    let ronde = 1;
+    let akhirRonde = 5;
+    
+
+
+    while (ronde <= akhirRonde){
+
+        let player1 = prompt(`Player 1 masukkan tebakan`);
+        let player2 = prompt(`Player 2 masukkan tebakan`);
+        let komp = Math.floor(Math.random() *3) +1;
+        let hasil = "";
+        let skorPlayer1 = 0;
+        let skorPlayer2 = 0;
+
+        if (player1 <= 1 && player1 >= 3){
+            confirm(`Mohon masukkan angka tebakan 1 - 3 !! \nIngin bermain lagi?`)
+        } else if (player2 <= 1 && player2 >= 3 ){
+            confirm(`Mohon masukkan angka tebakan 1 - 3 !! \nIngin bermain lagi?`)
+            // confirm (`Mohon masukkan angka`)
+        } else {
+        }
+        
+        if(player1 == komp){
+            skorPlayer1 += 1;
+            hasil = (`tebakan player 1 Benar \n--------------------------------- \nAngka tebakan adalah ` + komp + `\n` + `Player 1 : `+ skorPlayer1 + `\nPlayer 2 : ` + skorPlayer2);
+            //  break;
+        } else if (player2 == komp){
+            skorPlayer2 += 1;
+            hasil =  (`tebakan player 2 Benar \n--------------------------------- \nAngka tebakan adalah ` + komp + `\n` + `Player 1 : `+ skorPlayer1 + `\nPlayer 2 : ` + skorPlayer2);
+            // break;
+        } else if (player1 == player2){
+            hasil = (`Angka tidak boleh sama!!!!`);
+            // break;
+        }else if(player1 != komp && player2 != komp){
+            hasil = (`Player 1 dan Player 2 menebak angka yang salah \n--------------------------------- \nAngka tebakan yang benar adalah ` + komp + `\n` + `Player 1 : `+ skorPlayer1 + `\nPlayer 2 : ` + skorPlayer2);
+            // break ;
+        }else{
+            hasil = (`Anda tidak memasukkan angka`);
+            break;
+        }
+
+        ronde++;
+        alert (hasil);
+        confirm(`Lanjut ronde `+ ronde + `?`);
+    }
+
+    function winGame (skorPlayer1,skorPlayer2){
+        if (skorPlayer1 > skorPlayer2){
+            alert(`player 1 win..`);
+        }else if (skorPlayer2 > skorPlayer1){
+            alert(`player 2 win`);
+        }else{
+            alert(`Player 1 dan Player 2 seri`);
+        }
+        return skorPlayer1,skorPlayer2;
+    }
+
+    // let hasilAkhir = winGame();
+    alert(winGame());
+    
+    alert(`Terimakasih sudah bermain`);
+    
+    </script>
+
+
+</body>
+</html>
