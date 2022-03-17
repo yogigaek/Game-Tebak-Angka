@@ -4,12 +4,73 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-    <script src="stress.js"></script>
+    <title>Game Tebak Angka</title>
+    </head>
+    <style>
+        html{
+            height: 100%;
+        }
+        h1{
+            color: #fead03;
+        }
+        body{
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            height: 100%;
+            animation: ubah-background 20s
+            infinite linear;
+        }
+        .container{
+            position: relative;
+            width: 150px;
+            height: 150px;
+        }
+        .moon, .sun{
+            position: absolute;
+            height: 150px;
+            width: 150px;
+            border-radius: 50%;
+        }
+        .sun{
+            background-color: #fead03;
+        }
+        .moon{
+            background-color: #000;
+            animation: gerakan-bulan 20s
+            infinite linear, ubah-background 20s
+            infinite linear;
+        }
+        @keyframes gerakan-bulan{
+            0% {
+                left: 160px;
+            }
 
+            100% {
+                left: -160px;
+            }
+        }
+        @keyframes ubah-background{
+            0% {
+                background-color: #fff;
+            }
 
-</body>
-</html>
+            50% {
+                background-color: #000;
+            }
+
+            100% {
+                background-color: #fff;
+            }
+        }
+    </style>
+    <body>
+        <h1>Tekan CTRL + R untuk memulai game kembali</h1>
+        <div class="container">
+            <div class="sun"></div>
+            <div class="moon"></div>
+        </div>
+        
+        <script src="stress.js"></script>
+    </body>
+    </html>
